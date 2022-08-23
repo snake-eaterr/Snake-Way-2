@@ -1,0 +1,30 @@
+.banner {
+  background-image: url('../public/images/mike-petrucci-c9FQyqIECds-unsplash.jpg');
+  min-height: 80vh;
+  width: 100%;
+  background-size: contain;
+  background-position: center;
+
+}
+.bannerMobile {
+  background-color: #FFC23C;
+  min-height: 50vh;
+  width: 100vw;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: black;
+  
+  
+}
+
+@media (max-width: 600px) {
+  .banner {
+    display: none;
+  }
+  .bannerMobile {
+    display: flex;
+  }
+
+}
