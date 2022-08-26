@@ -96,7 +96,8 @@ export default function Reviews({ reviews,  productId }: ComponentProps) {
       marginTop: '5rem',
       [theme.breakpoints.up('md')]: {
         marginRight: '0.5rem'
-      }
+      },
+      marginBottom: '2rem'
     }}>
       {
         isAuthenticated

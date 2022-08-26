@@ -8,6 +8,7 @@ import Typography from '@mui/material/Typography';
 import { useTheme }from '@mui/material';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import { StyledButton } from '../Styled';
 import { Dialog, DialogTitle, DialogContent, DialogContentText, DialogActions } from '@mui/material';
 import Link from 'next/link';
 import { useAuth } from '../../utils/auth';
@@ -50,7 +51,7 @@ export function Checkout(props: CheckoutProps) {
         {
           isAuthenticated
           ?
-          <Button disabled={ (() => props.getTotal() > 0 ? false : true)() } variant="contained" color="secondary" onClick={handleCheckout}>Checkout</Button>
+          <StyledButton disabled={ (() => props.getTotal() > 0 ? false : true)() } variant="contained"  onClick={handleCheckout}>Checkout</StyledButton>
           :
           <Link href='/login'>
             <Button variant="text" color="secondary">Login to checkout</Button>

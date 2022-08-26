@@ -22,7 +22,7 @@ export default function Cart() {
       <Head>
         <title>My cart</title>
       </Head>
-      <Box sx={{ height: '80vh' }}>
+      <Box sx={{ minHeight: '80vh' }}>
         <CartItems />
       </Box>
     </Layout>

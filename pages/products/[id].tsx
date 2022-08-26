@@ -1,13 +1,13 @@
 import { Layout } from "../../components/Layout";
 import { initializeApollo, addApolloState } from "../../apollo/client";
-import { ALL_PRODUCTS, GET_PRODUCT_BY_ID } from "../../apollo/queries";
+import { GET_PRODUCT_BY_ID } from "../../apollo/queries";
 import { Product, Review } from "../../types";
-import { GetStaticProps } from 'next';
+import { GetServerSideProps } from 'next';
 import Grid from '@mui/material/Grid';
 import Box from '@mui/material/Box';
 import Image from 'next/image';
 import { Typography } from "@mui/material";
-import React, { FormEventHandler, useMemo } from 'react';
+import React, { useMemo } from 'react';
 import { StyledRating, StyledButton, BoxPaper } from '../../components/Styled';
 import { useTheme } from '@mui/material';
 
@@ -143,40 +143,34 @@ export default function ProductPage({ id }: { id: string }) {
   )
 }
 
-export async function getStaticPaths() {
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
   const client = initializeApollo();
-  const { data } = await client.query<ProductsData>({
-    query: ALL_PRODUCTS
-  }); 
-
-  const paths = data.allProducts.map(product => {
-    return {
-      params: {
-        id: product.id
-      }
-    };
-  });
-
-  return {
-    paths,
-    fallback: false
-  };
-}
-
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-  const client = initializeApollo()
-  await client.query<ProductData, ProductId>({
-    query: GET_PRODUCT_BY_ID,
-    variables: { productId: params?.id as string }
-  });
-
-  return addApolloState(client, {
-    props: {
-      id: params?.id
+  if(context.params?.id) {
+    try {
+      
+      await client.query<ProductData, ProductId>({
+        query: GET_PRODUCT_BY_ID,
+        variables: { productId: context.params.id as string}
+      });
+    } catch (e: unknown) {
+      return {
+        notFound: true
+      };
     }
-  });
+
+    return addApolloState(client, {
+      props: {
+        id: context.params?.id
+      }
+    });
+  } else {
+    return {
+      notFound: true
+    }
+  }
+}
 
   
 
  
-}
