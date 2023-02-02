@@ -34,7 +34,7 @@ const authLink = setContext((_, { headers }) => {
     }
   }
 })
-const httpLink = new HttpLink({ uri: "https://frozen-bayou-75999.herokuapp.com/graphql" })
+const httpLink = new HttpLink({ uri: "https://snake-way.onrender.com/graphql" })
 
 
 
