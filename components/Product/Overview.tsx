@@ -41,7 +41,7 @@ export default function Overview({ products, category }: { products: Product[], 
                         {product.label}
                       </Typography>
                       <Image
-                        src={`https://frozen-bayou-75999.herokuapp.com/api/image/${product.id}`}
+                        src={`https://snake-way.onrender.com/api/image/${product.id}`}
                         alt="Product image"
                         width={400}
                         height={400}

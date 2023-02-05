@@ -80,7 +80,7 @@ export default function ProductPage({ id }: { id: string }) {
         <Grid container spacing={3} sx={{ color: 'rgb(231, 211, 211)' }}>
           <Grid item xs={12}  md={6}>
             <Image
-              src={`https://frozen-bayou-75999.herokuapp.com/api/image/${data?.getProductById.id}`}
+              src={`https://snake-way.onrender.com/api/image/${data?.getProductById.id}`}
               width={200}
               height={200}
               layout="responsive"

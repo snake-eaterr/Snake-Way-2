@@ -101,7 +101,7 @@ export function CartItems() {
                           <Grid container spacing={4} sx={{ padding: '0.8rem' }}>
                             <Grid item xs={12} md={4}>
                               <Image
-                                src={`https://frozen-bayou-75999.herokuapp.com/api/image/${item.product.id}`}
+                                src={`https://snake-way.onrender.com/api/image/${item.product.id}`}
                                 width={200}
                                 height={200}
                                 layout="responsive"

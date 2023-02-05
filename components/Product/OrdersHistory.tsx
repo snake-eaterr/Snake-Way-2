@@ -57,7 +57,7 @@ export default function OrdersHistory() {
                   <Grid container spacing={4} sx={{ padding: 0 }}>
                     <Grid item xs={12} md={4}>
                       <Image
-                        src={`https://frozen-bayou-75999.herokuapp.com/api/image/${order.orderedProduct.id}`}
+                        src={`https://snake-way.onrender.com/api/image/${order.orderedProduct.id}`}
                         width={400}
                         height={400}
                         layout="responsive"
